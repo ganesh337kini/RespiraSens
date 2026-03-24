@@ -1,0 +1,6 @@
+id,region,latitude,longitude,fever,breathlessness,fatigue,cough_duration_days,aqi,temperature_c,humidity,historical_risk_index,audio_risk_score,final_risk_label
+1,Bengaluru,12.9716,77.5946,0,0,0,2,58,27,64,0.31,0.22,Low
+2,Bengaluru,12.9821,77.6119,1,0,1,5,122,29,58,0.49,0.48,Medium
+3,Mumbai,19.0760,72.8777,1,1,1,7,168,31,72,0.66,0.79,High
+4,Delhi,28.6139,77.2090,1,1,0,6,214,33,49,0.72,0.69,High
+5,Chennai,13.0827,80.2707,0,1,0,3,86,32,70,0.41,0.44,Medium

@@ -1,0 +1,48 @@
+{
+  "n_samples": 120000,
+  "structured_holdout_accuracy": 0.78578,
+  "structured_holdout_roc_auc": 0.80991,
+  "structured_holdout_f1": 0.86498,
+  "structured_cv_mean_roc_auc_uncalibrated_hgb": 0.80966,
+  "audio_holdout_accuracy": 0.78661,
+  "audio_holdout_roc_auc": 0.77924,
+  "fusion_holdout_accuracy": 0.79672,
+  "fusion_holdout_roc_auc": 0.81922,
+  "trend_holdout_mae": 0.02025,
+  "feature_schema": {
+    "structured": [
+      "fever",
+      "breathlessness",
+      "fatigue",
+      "cough_duration_norm",
+      "historical_risk",
+      "aqi_norm",
+      "temp_norm",
+      "humidity_norm",
+      "hour_sin",
+      "hour_cos",
+      "region_norm"
+    ],
+    "audio": [
+      "mfcc_mean",
+      "zcr",
+      "spectral_centroid",
+      "energy",
+      "roughness"
+    ],
+    "fusion": [
+      "p_struct",
+      "p_audio",
+      "region_norm",
+      "hour_sin",
+      "hour_cos"
+    ],
+    "trend": [
+      "t_index",
+      "sin_t",
+      "cos_t",
+      "historical_risk",
+      "region_numeric"
+    ]
+  }
+}
