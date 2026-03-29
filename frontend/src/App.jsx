@@ -33,7 +33,7 @@ function AppInner() {
       <header className="topbar">
         <div className="brand">
           <BrainCircuit size={20} />
-          <span>RespiraSense 2.0</span>
+          <span>RespiraSense </span>
           <Activity size={16} className="pulse-icon" />
         </div>
         <nav>
