@@ -1,6 +1,7 @@
 fastapi
 uvicorn[standard]
 python-multipart
+certifi>=2024.0.0
 numpy
 scikit-learn
 joblib

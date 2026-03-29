@@ -9,8 +9,8 @@ def _norm(value: float, low: float = 0.0, high: float = 1.0) -> float:
 
 def extract_audio_features(file_bytes: bytes) -> dict[str, float]:
     """
-    Lightweight audio proxy features from raw bytes.
-    This avoids heavy native dependencies so backend remains portable.
+    Audio intelligence layer: byte-level proxies aligned with spectrogram/MFCC-style cues
+    (energy, zero-crossing, centroid, roughness) for cough risk scoring without heavy native deps.
     """
     raw = list(file_bytes[:12000])
     if not raw:

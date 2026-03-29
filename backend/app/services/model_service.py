@@ -179,18 +179,25 @@ def risk_level_from_score(score: float) -> str:
 
 
 def recommendations_from_level(level: str) -> list[str]:
-    base = ["Maintain hydration and monitor respiratory symptoms daily."]
     if level == "Low":
-        return base + ["Continue preventive behavior in crowded environments."]
-    if level == "Medium":
-        return base + [
-            "Use masks in enclosed spaces.",
-            "Schedule a tele-consult if cough persists beyond 3 days.",
+        return [
+            "Stay hydrated",
+            "Rest and monitor symptoms",
+            "Avoid dust and cold exposure",
+            "Use steam inhalation (optional)",
         ]
-    return base + [
-        "Seek clinical evaluation within 24 hours.",
-        "Reduce exposure in high-density areas and improve indoor ventilation.",
-        "Alert local health network for cluster monitoring.",
+    if level == "Medium":
+        return [
+            "Monitor symptoms regularly",
+            "Consider teleconsultation with a doctor",
+            "Avoid crowded places",
+            "Track fever and breathing condition",
+        ]
+    return [
+        "Seek immediate medical attention",
+        "Visit nearest hospital or clinic",
+        "Avoid self-medication",
+        "Keep emergency contact ready",
     ]
 
 

@@ -1,11 +1,13 @@
-import { Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route, NavLink, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useMemo } from "react";
 import { Activity, BrainCircuit } from "lucide-react";
 
 import LandingPage from "./pages/LandingPage";
 import DashboardPage from "./pages/DashboardPage";
 import AnalysisPage from "./pages/AnalysisPage";
 import ResultsPage from "./pages/ResultsPage";
+import HealthChatbot from "./components/HealthChatbot";
 
 const navItems = [
   { path: "/", label: "Home" },
@@ -14,7 +16,18 @@ const navItems = [
   { path: "/results", label: "Results" },
 ];
 
-export default function App() {
+function AppInner() {
+  const location = useLocation();
+  const riskLevel = useMemo(() => {
+    try {
+      const raw = localStorage.getItem("respirasense:lastResult");
+      if (!raw) return "Low";
+      return JSON.parse(raw).prediction?.risk_level ?? "Low";
+    } catch {
+      return "Low";
+    }
+  }, [location.pathname]);
+
   return (
     <div className="app-shell">
       <header className="topbar">
@@ -50,6 +63,11 @@ export default function App() {
           <Route path="/results" element={<ResultsPage />} />
         </Routes>
       </motion.main>
+      <HealthChatbot riskLevel={riskLevel} />
     </div>
   );
+}
+
+export default function App() {
+  return <AppInner />;
 }

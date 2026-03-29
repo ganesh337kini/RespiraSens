@@ -14,6 +14,8 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.allowed_origins,
+    # LAN / alternate host:5173 when testing from phone or custom hostname
+    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1|[\w.-]+)(:\d+)?",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

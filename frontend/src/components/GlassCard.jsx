@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export default function GlassCard({ title, children, className = "" }) {
+export default function GlassCard({ title, children, className = "", action = null }) {
   return (
     <motion.section
       className={`glass-card ${className}`}
@@ -9,7 +9,12 @@ export default function GlassCard({ title, children, className = "" }) {
       transition={{ duration: 0.35 }}
       whileHover={{ y: -2 }}
     >
-      {title ? <h3>{title}</h3> : null}
+      {title ? (
+        <div className="glass-card-head">
+          <h3>{title}</h3>
+          {action}
+        </div>
+      ) : null}
       {children}
     </motion.section>
   );

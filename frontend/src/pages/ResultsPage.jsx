@@ -1,7 +1,12 @@
 import { useMemo } from "react";
+import { motion } from "framer-motion";
+import { FileDown } from "lucide-react";
 import GlassCard from "../components/GlassCard";
 import RiskBadge from "../components/RiskBadge";
 import TrendChart from "../components/TrendChart";
+import ExplainPanel from "../components/ExplainPanel";
+import ExplainImportanceChart from "../components/ExplainImportanceChart";
+import { openHealthReportPdf } from "../utils/exportReport";
 
 export default function ResultsPage() {
   const result = useMemo(() => {
@@ -14,6 +19,7 @@ export default function ResultsPage() {
   }
 
   const { prediction, audio, trends } = result;
+  const factors = prediction.explainability ?? [];
 
   return (
     <div className="page page-results">
@@ -23,6 +29,24 @@ export default function ResultsPage() {
           <h2>{(prediction.outbreak_probability * 100).toFixed(1)}% outbreak probability</h2>
           <p>Confidence: {(prediction.confidence * 100).toFixed(1)}%</p>
         </div>
+      </GlassCard>
+
+      <GlassCard
+        title="Explainable AI"
+        action={
+          <motion.button
+            type="button"
+            className="btn btn-ghost export-pdf-btn"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => openHealthReportPdf(result)}
+          >
+            <FileDown size={16} /> Export report
+          </motion.button>
+        }
+      >
+        <ExplainImportanceChart factors={factors} />
+        <ExplainPanel factors={factors} />
       </GlassCard>
 
       <div className="grid-2">

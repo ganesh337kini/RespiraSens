@@ -1,0 +1,12 @@
+[
+  {
+    "region": "Bengaluru",
+    "risk_level": "High",
+    "fused_score": 0.7064,
+    "latitude": 12.97,
+    "longitude": 77.59,
+    "structured_score": 0.8479,
+    "audio_score": 0.5,
+    "recorded_at": "2026-03-29T04:54:15.836639+00:00"
+  }
+]
